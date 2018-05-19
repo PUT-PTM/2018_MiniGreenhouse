@@ -123,9 +123,6 @@ int main(void)
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
   status = ds18b20Init(SKIP_ROM);
-//  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_15, GPIO_PIN_SET);
-//  HAL_Delay(1000);
-//  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_15, GPIO_PIN_RESET);
   initScreen();
   HAL_ADC_Start(&hadc1);
   HAL_ADC_Start(&hadc2);
@@ -497,8 +494,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 		SSD1306_Fill(0);
 		SSD1306_UpdateScreen();
 		if (waterSt == 0) {
-			HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14);
-
 			char tempBuff[50];
 			char tempBuff2[50];
 			if (screenCnt == 1) {
